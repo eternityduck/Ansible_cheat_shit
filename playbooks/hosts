@@ -1,0 +1,62 @@
+[production]
+delaware.example.com
+georgia.example.com
+maryland.example.com
+newhampshire.example.com
+newjersey.example.com
+newyork.example.com
+northcarolina.example.com
+pennsylvania.example.com
+rhodeisland.example.com
+virginia.example.com
+
+[staging]
+ontario.example.com
+quebec.example.com
+
+[vagrant]
+#Ansible’s inventory can associate only a single host with 127.0.0.1
+vagrant1 ansible_host=127.0.0.1 ansible_port=2222
+vagrant2 ansible_host=127.0.0.1 ansible_port=2200
+vagrant3 ansible_host=127.0.0.1 ansible_port=2201
+
+[lb]
+delaware.example.com
+
+[web]
+georgia.example.com
+newhampshire.example.com
+newjersey.example.com
+ontario.example.com
+vagrant1
+
+[task]
+newyork.example.com
+northcarolina.example.com
+maryland.example.com
+ontario.example.com
+vagrant2
+
+[rabbitmq]
+pennsylvania.example.com
+quebec.example.com
+vagrant3
+
+[db]
+rhodeisland.example.com
+virginia.example.com
+quebec.example.com
+vagrant3
+
+
+[django:children]
+web
+task
+
+#20 servers from web1.example.com to web20.example.com
+[web]
+web[1:20].example.com
+
+#Same with letters
+[web]
+web-[a-t].example.com

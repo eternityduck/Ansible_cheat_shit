@@ -1,0 +1,4 @@
+#Use of separated vars
+
+vars_files:
+ - nginx.yml
