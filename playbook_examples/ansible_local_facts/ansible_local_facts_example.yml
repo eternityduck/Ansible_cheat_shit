@@ -1,0 +1,21 @@
+- name: print ansible_local
+  debug: var=ansible_local
+- name: print book title
+  debug: msg="The title of the book is {{ ansible_local.example.book.title }}"
+
+#  TASK: [print ansible_local] ***************************************************
+#  ok: [server1] => {
+#     "ansible_local": {
+#         "example": {
+#             "book": {
+#               "author": "Lorin Hochstein",
+#               "publisher": "O'Reilly Media",
+#               "title": "Ansible: Up and Running"
+#             }
+#          }
+#      }
+#   }
+#  TASK: [print book title] ******************************************************
+#  ok: [server1] => {
+#   "msg": "The title of the book is Ansible: Up and Running"
+#  }

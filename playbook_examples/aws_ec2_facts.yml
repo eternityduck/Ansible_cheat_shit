@@ -1,0 +1,9 @@
+- name: get ec2 facts
+   ec2_facts:
+
+- debug: var=ansible_ec2_instance_id
+
+# TASK: [debug var=ansible_ec2_instance_id] *************************************
+# ok: [myserver] => {
+#  "ansible_ec2_instance_id": "i-a3a2f866"
+# }

@@ -4,4 +4,5 @@
     - name: capture output of id command
       command: id -un
       register: login
-    - debug: var=login
+      #to capture output
+    - debug: msg="logged in as user {{ login.stdout }}"
