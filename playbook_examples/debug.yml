@@ -1,0 +1,13 @@
+- name: initialize the database
+ django_manage:
+ command: createdb --noinput --nodata
+ app_path: "{{ proj_path }}"
+ virtualenv: "{{ venv_path }}"
+ #doesn`t stop even if the task will fail
+ failed_when: False
+ #saving output
+ register: result
+ #printing output
+- debug: var=result
+ #stop execution
+- fail:

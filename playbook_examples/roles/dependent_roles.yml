@@ -1,0 +1,7 @@
+#This is just a syntax example, won`t work 
+dependencies:
+ - { role: web }
+ - { role: memcached }
+
+
+#Will be executed first 
